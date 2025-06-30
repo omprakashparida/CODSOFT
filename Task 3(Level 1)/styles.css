@@ -1,0 +1,163 @@
+ /* Global styles and typography */
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to right, #6366f1, #8b5cf6); /* Indigo to Violet gradient */
+            margin: 0;
+            padding: 20px; /* Add some padding for smaller screens */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+
+        /* Calculator container styling */
+        .calculator {
+            background-color: #1a202c; /* Dark slate background */
+            padding: 20px;
+            border-radius: 1.5rem; /* More rounded corners */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Deeper shadow */
+            width: 100%; /* Make it responsive */
+            max-width: 380px; /* Max width for desktop */
+            border: 2px solid #4a5568; /* Subtle border */
+            box-sizing: border-box;
+        }
+
+        /* Display screen styling */
+        .display {
+            background-color: #2d3748; /* Slightly lighter dark background */
+            color: #e2e8f0; /* Light gray text */
+            font-size: 2.8rem; /* Larger font for main numbers */
+            text-align: right;
+            padding: 20px;
+            border-radius: 1rem; /* Rounded display corners */
+            margin-bottom: 20px;
+            height: 90px; /* Fixed height for consistency */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Space out primary and secondary text */
+            overflow: hidden; /* Hide overflow text */
+            word-wrap: break-word; /* Allow long numbers to wrap */
+            line-height: 1.2;
+        }
+
+        .display .previous-operand {
+            font-size: 1.2rem;
+            color: #a0aec0; /* Lighter gray for previous operations */
+            min-height: 1.2em; /* Ensure space even if empty */
+        }
+
+        .display .current-operand {
+            font-size: 2.8rem;
+            font-weight: 600;
+        }
+
+        /* Button grid layout */
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns */
+            gap: 15px; /* Space between buttons */
+        }
+
+        /* Button styling */
+        .button {
+            background-color: #4a5568; /* Darker gray for buttons */
+            color: #e2e8f0; /* Light gray text */
+            padding: 20px 0;
+            font-size: 1.7rem; /* Larger button text */
+            border: none;
+            border-radius: 0.75rem; /* Rounded button corners */
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Button shadow */
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+ */
+            user-select: none; /* Standard */
+        }
+
+        .button:hover {
+            background-color: #6a768b; /* Lighter on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+
+        .button:active {
+            background-color: #5d687b; /* Even lighter on click */
+            transform: translateY(0); /* Reset lift on click */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Smaller shadow on click */
+        }
+
+        /* Operator buttons */
+        .button.operator {
+            background-color: #667eea; /* Indigo-500 for operators */
+            color: #ffffff;
+        }
+
+        .button.operator:hover {
+            background-color: #5a67d8; /* Darker indigo on hover */
+        }
+
+        .button.operator:active {
+            background-color: #4c51bf; /* Even darker on click */
+        }
+
+        /* Equals button */
+        .button.equals {
+            background-color: #38a169; /* Green-600 for equals */
+            grid-column: span 2; /* Span two columns */
+            font-weight: bold;
+        }
+
+        .button.equals:hover {
+            background-color: #2f855a; /* Darker green on hover */
+        }
+
+        .button.equals:active {
+            background-color: #276749; /* Even darker on click */
+        }
+
+        /* Clear button */
+        .button.clear {
+            background-color: #e53e3e; /* Red-600 for clear */
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .button.clear:hover {
+            background-color: #c53030; /* Darker red on hover */
+        }
+
+        .button.clear:active {
+            background-color: #9b2c2c; /* Even darker on click */
+        }
+
+        /* Specific layout adjustments for operand/operator separation */
+        .button.clear.top-left {
+            grid-column: span 3; /* Make clear button span 3 columns */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .calculator {
+                padding: 15px;
+                max-width: 95%; /* Even wider on small mobiles */
+            }
+            .display {
+                font-size: 2.2rem;
+                padding: 15px;
+                height: 80px;
+            }
+            .display .previous-operand {
+                font-size: 1rem;
+            }
+            .display .current-operand {
+                font-size: 2.2rem;
+            }
+            .buttons-grid {
+                gap: 10px;
+            }
+            .button {
+                padding: 15px 0;
+                font-size: 1.4rem;
+            }
+        }
